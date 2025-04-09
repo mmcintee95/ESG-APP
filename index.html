@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESG Radar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 20px;
+      color: #1e293b;
+    }
+    .container {
+      max-width: 480px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .card h2 {
+      font-size: 1rem;
+      margin: 0 0 6px 0;
+    }
+    .news-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .green { background-color: #dcfce7; color: #166534; }
+    .red { background-color: #fee2e2; color: #991b1b; }
+    .orange { background-color: #fef3c7; color: #92400e; }
+    .blue { background-color: #e0f2fe; color: #075985; }
+    .chart-placeholder {
+      height: 40px;
+      background: linear-gradient(to right, #ddd 20%, #ccc 80%);
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .source-btn {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #0f172a;
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ESG Radar</h1>
+    <input class="search" type="text" placeholder="Search companies..." />
+
+    <div class="section-title">Your Watchlist</div>
+
+    <div class="card">
+      <h2>Fast Fashion Inc.</h2>
+      <div class="news-tag red">News: Greenwashing</div>
+      <div class="chart-placeholder"></div>
+      <a href="#" class="source-btn">Source</a>
+    </div>
+
+    <div class="card">
+      <h2>Agro Foods Ltd.</h2>
+      <div class="news-tag orange">News: Packaging Waste</div>
+      <div class="chart-placeholder"></div>
+      <a href="#" class="source-btn">Source</a>
+    </div>
+
+    <div class="card">
+      <h2>Green Energy Co.</h2>
+      <div class="news-tag green">News: Emissions Reduction</div>
+      <div class="chart-placeholder"></div>
+      <a href="#" class="source-btn">Source</a>
+    </div>
+
+    <div class="card">
+      <h2>Tech Solutions</h2>
+      <div class="news-tag red">News: Data Privacy Concerns</div>
+      <div class="chart-placeholder"></div>
+      <a href="#" class="source-btn">Source</a>
+    </div>
+  </div>
+</body>
+</html>
