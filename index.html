@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ESG Radar</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -55,13 +56,6 @@
     .green { background-color: #dcfce7; color: #166534; }
     .red { background-color: #fee2e2; color: #991b1b; }
     .orange { background-color: #fef3c7; color: #92400e; }
-    .blue { background-color: #e0f2fe; color: #075985; }
-    .chart-placeholder {
-      height: 40px;
-      background: linear-gradient(to right, #ddd 20%, #ccc 80%);
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
     .source-btn {
       display: inline-block;
       background: #f1f5f9;
@@ -71,6 +65,11 @@
       border-radius: 6px;
       text-decoration: none;
       border: 1px solid #cbd5e1;
+    }
+    canvas {
+      width: 100% !important;
+      height: 100px !important;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -84,30 +83,60 @@
     <div class="card">
       <h2>Fast Fashion Inc.</h2>
       <div class="news-tag red">News: Greenwashing</div>
-      <div class="chart-placeholder"></div>
+      <canvas id="chart1"></canvas>
       <a href="#" class="source-btn">Source</a>
     </div>
 
     <div class="card">
       <h2>Agro Foods Ltd.</h2>
       <div class="news-tag orange">News: Packaging Waste</div>
-      <div class="chart-placeholder"></div>
+      <canvas id="chart2"></canvas>
       <a href="#" class="source-btn">Source</a>
     </div>
 
     <div class="card">
       <h2>Green Energy Co.</h2>
       <div class="news-tag green">News: Emissions Reduction</div>
-      <div class="chart-placeholder"></div>
+      <canvas id="chart3"></canvas>
       <a href="#" class="source-btn">Source</a>
     </div>
 
     <div class="card">
       <h2>Tech Solutions</h2>
       <div class="news-tag red">News: Data Privacy Concerns</div>
-      <div class="chart-placeholder"></div>
+      <canvas id="chart4"></canvas>
       <a href="#" class="source-btn">Source</a>
     </div>
   </div>
+
+  <script>
+    function renderChart(id, data, color) {
+      const ctx = document.getElementById(id).getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: Array(data.length).fill(''),
+          datasets: [{
+            data: data,
+            borderColor: color,
+            borderWidth: 2,
+            tension: 0.4,
+            pointRadius: 0,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } }
+        }
+      });
+    }
+
+    renderChart("chart1", [60, 58, 59, 61, 63, 62, 60, 59, 58, 57], "#dc2626");
+    renderChart("chart2", [70, 71, 70, 68, 69, 70, 71, 70, 69, 68], "#ea580c");
+    renderChart("chart3", [80, 81, 82, 82, 83, 84, 84, 85, 85, 86], "#16a34a");
+    renderChart("chart4", [65, 64, 63, 64, 62, 61, 60, 59, 60, 58], "#991b1b");
+  </script>
 </body>
 </html>
